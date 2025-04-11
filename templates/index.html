@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="styles.css">
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin-bottom: 20px;
+}
+
+</style>
+</head>
+<body>
+    <h1>Sentiment Analysis</h1>
+    <form action="/analyze" method="post">
+        <textarea name="text" rows="4" cols="50" placeholder="Enter text for sentiment analysis..."></textarea><br>
+        <button type="submit">Analyze Sentiment</button>
+    </form>
+    {% if text %}
+    <h2>Text: {{ text }}</h2>
+    <h2>Predicted Label: {{ predicted_label }}</h2>
+    <h2>Accuracy: {{ accuracy }}</h2>
+    <h2>Classification Report:</h2>
+    <pre>{{ classification_rep }}</pre>
+    {% endif %}
+</body>
+</html>
